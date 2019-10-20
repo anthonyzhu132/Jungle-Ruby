@@ -16,13 +16,13 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:create, :index, :new]
-    resources :sales, only: [:index]
+    resources :sales, only: [:index, :new]
   end
 
   resources :about, only: [:index]
 
   get '/signup' => 'users#new'
-  post '/users' => 'users#create'
+  post '/users' => 'users#create' 
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
